@@ -22,12 +22,12 @@ int main(void)
 	connect(sfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr));
 										
 	while (1) {
-      fgets(buf, sizeof(buf), stdin);
-      int r = write(sfd, buf, strlen(buf));       
-      printf("Write r ======== %d\n", r);
-      len = read(sfd, buf, sizeof(buf));
-      printf("Read len ========= %d\n", len);
-      write(STDOUT_FILENO, buf, len);
+		fgets(buf, sizeof(buf), stdin);
+		int r = write(sfd, buf, strlen(buf));       
+		printf("Write r ======== %d\n", r);
+		len = read(sfd, buf, sizeof(buf));
+		printf("Read len ========= %d\n", len);
+		write(STDOUT_FILENO, buf, len);
     }
 										
     close(sfd);
