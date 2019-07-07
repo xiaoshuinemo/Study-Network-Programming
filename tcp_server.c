@@ -73,9 +73,21 @@ int main()
 			else{	//message from old client
 				if(!all[i].events & EPOLLIN)
 					continue;
-
 				char buf[20] = {0};
 				int len;
+
+				/*******  Level Trigger ********
+				int len = recv(fd, buf, size, 0);
+				if(ret <= 0){
+					close(fd);
+					continue;
+				
+				}
+				write(STDOUT_FILENO, buf, len);	//print
+				send(fd, buf, len, 0);			//send to client
+
+				*******************************/ 	
+				
 				while((len = recv(fd, buf, sizeof(buf), 0)) > 0){
 					write(STDOUT_FILENO, buf, len);	//print
 					send(fd, buf, len, 0);			//send to client
