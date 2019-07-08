@@ -62,6 +62,7 @@ int main()
 
 				struct epoll_event temp;
 				temp.events = EPOLLIN | EPOLLET;
+				//temp.events = EPOLLIN;
 				temp.data.fd = cfd;
 				epoll_ctl(epfd, EPOLL_CTL_ADD, cfd, &temp);
 
